@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Profiles
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="ui modal mymodal">
+    <i class="close icon"></i>
+    <div class="header">
+      Update Your Profiles
+    </div>
+    <div class="image content">
+      <div class="ui medium image">
+        <img src="{{profile.avatar.url}}" alt="">
+      </div>
+      <div class="description">
+        <div class="ui header">Provide your new and additional Profiles for you</div>
+        <form action="" method="post" class="ui form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+        
+      </div>
+    </div>
+    <div class="actions">
+
+      <button type="submit"  class="ui positive right labeled icon button">
+        Update
+        <i class="checkmark icon"></i>
+      </button>
+    </form>
+    </div>
+  </div>
+
+
+
+{% if confirm %}
+<div class="ui green message">Update your Profiles</div>
+{% endif %}
+<button class="ui secondary button" id="modal-btn">Update Profile</button>
+
+{% endblock %}
